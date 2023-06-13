@@ -17,9 +17,13 @@ var endPoints = {
     insertProduct: `https://${domain}/baexang_back/product/insert_product`,
     getProducts: `https://${domain}/baexang_back/product/get_products`,
   },
-  cart : {
+  cart: {
     addCart: `https://${domain}/baexang_back/cart/add_cart`,
     getCart: `https://${domain}/baexang_back/cart/get_cart`,
     delCart: `https://${domain}/baexang_back/cart/del_cart`,
-  }
+  },
+  comment: {
+    insertCmt: `https://${domain}/baexang_back/comment/insert_cmt`,
+    getCmt: `https://${domain}/baexang_back/comment/get_cmt`,
+  },
 };

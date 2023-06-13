@@ -60,7 +60,6 @@ async function getSubPageData() {
   // console.log(getPageUrl);
   try {
     const data = await getRequest(getPageUrl);
-    console.log(data);
     const productLists = document.querySelector(".product-lists");
     let productList = "";
 

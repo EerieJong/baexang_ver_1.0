@@ -19,8 +19,16 @@ const cartForm = document.querySelector(".cart-form");
 const itemCountElmt = document.querySelectorAll(".counting span");
 const itemCountNum = document.querySelectorAll(".counting .count");
 const itemCount = document.querySelector(".counting .count").textContent;
-const itemSize1 = document.querySelector('#cart-size-1');
-const itemSize2 = document.querySelector('#cart-size-2');
+const itemSize1 = document.querySelector("#cart-size-1");
+const itemSize2 = document.querySelector("#cart-size-2");
+
+const wrapTitle = document.querySelector(".detail .section-title");
+const wrapWtKr = document.querySelector(".detail .title-desc");
+const infoImage = document.querySelector(".detail-info-image img");
+const infoTitle = document.querySelector(".info-title .tit");
+const wtEn = document.querySelector(".info-title .en");
+const wtKr = document.querySelector(".info-title .kr");
+const infoDesc = document.querySelector(".info-desc");
 
 async function getDetailData() {
   const getDetailUrl =
@@ -41,16 +49,15 @@ async function getDetailData() {
     `;
     cartForm.insertAdjacentHTML("beforeend", cartFormElmt);
 
-    function handleSizeChange(event){
+    function handleSizeChange(event) {
       const selectedValue = event.target.value;
-      // console.log(selectedValue);
-      itemSize1.value=selectedValue;
-      itemSize2.value=selectedValue;
+      itemSize1.value = selectedValue;
+      itemSize2.value = selectedValue;
       document.querySelector('input[name="cart_size"]').value = selectedValue;
     }
 
-    itemSize1.addEventListener('change', handleSizeChange);
-    itemSize2.addEventListener('change', handleSizeChange);
+    itemSize1.addEventListener("change", handleSizeChange);
+    itemSize2.addEventListener("change", handleSizeChange);
 
     itemImage.setAttribute("src", data[0].pr_img);
     itemTitle.textContent = data[0].pr_ttl;
@@ -59,6 +66,14 @@ async function getDetailData() {
     itemPrice.forEach((price) => {
       price.textContent = Number(data[0].pr_pri).toLocaleString();
     });
+
+    wrapTitle.textContent = data[0].pr_ttl;
+    wrapWtKr.textContent = data[0].pr_wt_kr;
+    infoImage.setAttribute("src", data[0].pr_img);
+    infoTitle.textContent = data[0].pr_ttl;
+    wtEn.textContent = data[0].pr_wt_en;
+    wtKr.textContent = data[0].pr_wt_kr;
+    infoDesc.insertAdjacentHTML("beforeend", data[0].pr_desc);
 
     const inputCountElmt = document.querySelector(".cart_count");
     const inputPriceElmt = document.querySelector(".cart_pri");
@@ -80,12 +95,8 @@ async function getDetailData() {
         });
 
         itemPrice.forEach((price) => {
-          price.textContent = (
-            count * data[0].pr_pri
-          ).toLocaleString();
-          inputPriceElmt.value = 
-            count * data[0].pr_pri
-          ;
+          price.textContent = (count * data[0].pr_pri).toLocaleString();
+          inputPriceElmt.value = count * data[0].pr_pri;
         });
       });
     });
