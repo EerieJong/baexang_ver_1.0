@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" />
 
   <!-- Remix Icon -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -15,6 +17,7 @@
   <!-- Plugin CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="wrapper detail">
     <!-- Header -->
@@ -25,7 +28,8 @@
     <section class="detail-section section">
       <div class="container">
         <div class="gallery-bg-wrapper">
-          <div class="gallery-bg" style="background-image: url(/baexang_front/images/item-detail-frame-bg01.jpeg)"></div>
+          <div class="gallery-bg" style="background-image: url(/baexang_front/images/item-detail-frame-bg01.jpeg)">
+          </div>
 
           <div class="gallery-contents">
             <div class="gallery-item-hang">
@@ -43,7 +47,7 @@
                 <div class="size-title">
                   <p>그림사이즈 선택</p>
                   <em>캔버스/래핑캔버스는 짧은면 최대 140cm</em>
-                </div>       
+                </div>
                 <select name="" id="cart-size-1">
                   <option value="30">30cm X 30cm</option>
                   <option value="35">35cm X 35cm</option>
@@ -94,15 +98,15 @@
         </div>
         <div class="item-order-info-clone">
           <div class="item-title-box">
-            <h3>키스</h3>
-            <p>구스타프 클립트</p>
+            <h3></h3>
+            <p></p>
           </div>
           <span class="line"></span>
           <div class="item-size-box">
             <div class="size-title">
               <p>그림사이즈 선택</p>
               <em>캔버스/래핑캔버스는 짧은면 최대 140cm</em>
-            </div>       
+            </div>
             <select name="" id="cart-size-2">
               <option value="30">30cm X 30cm</option>
               <option value="35">35cm X 35cm</option>
@@ -307,8 +311,13 @@
     <!-- Footer -->
     <div id="footer-wrapper"></div>
   </div>
+
+  <div class="preloader js-preloader">
+    <div class="loader"></div>
+  </div>
   <!-- jQuery CDN Link -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
   <!-- Plugin -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -321,4 +330,5 @@
   <script src="/baexang_front/js/request/comment/insertCmt.js"></script>
   <script src="/baexang_front/js/request/comment/controlCmt.js"></script>
 </body>
+
 </html>

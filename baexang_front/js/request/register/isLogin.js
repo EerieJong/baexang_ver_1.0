@@ -31,7 +31,10 @@ loadScript(scriptFiles).then(function () {
   const isLoginUrl = endPoints.register.isSignin;
   // console.log(isLoginUrl);
   window.addEventListener("load", () => {
-    checkPostIsLogin(isLoginUrl, null);
+    setTimeout(() => {
+      checkPostIsLogin(isLoginUrl, null);
+    }, 1000);
+    
   });
 });
 // ========== 반복 사용 코드 : 한번만 실행 ==========//
@@ -49,6 +52,7 @@ const checkPostIsLogin = async (url, jsonString) => {
   try {
     const data = await postRequest(url, options);
     changeHeaderByLogin(data);
+    
     startLogout();
   } catch (error) {
     console.log("error : ", error);
@@ -68,6 +72,7 @@ const changeHeaderByLogin = (userLoginData) => {
           <li class="signup-menu"><a href="/baexang_front/pages/sign-up.html">회원가입</a></li>
         </ul>
       `;
+      info.insertAdjacentHTML("beforeend", userLoginElmt); 
     } else {
       if (userLoginData.userlvl === 1) {
         userLoginElmt = `
@@ -77,6 +82,7 @@ const changeHeaderByLogin = (userLoginData) => {
             <li class="login-menu logged-in"><a href="#"><span>${userLoginData.userid}님</span>로그아웃</a></li>
           </ul>
         `;
+        info.insertAdjacentHTML("beforeend", userLoginElmt); 
       } else {
         userLoginElmt = `
         <ul>
@@ -84,9 +90,10 @@ const changeHeaderByLogin = (userLoginData) => {
           <li class="login-menu logged-in"><a href="#"><span>${userLoginData.userid}님</span>로그아웃</a></li>
         </ul>
       `;
+      info.insertAdjacentHTML("beforeend", userLoginElmt); 
       }
     }
-    info.insertAdjacentHTML("beforeend", userLoginElmt); // 자바스크립트로 직접 만든 태그는 insertAdjacentElement를 사용하지만 문자열로 만들어진 태그는 insertAdjacentHTML을 사용한다
+    // info.insertAdjacentHTML("beforeend", userLoginElmt); // 자바스크립트로 직접 만든 태그는 insertAdjacentElement를 사용하지만 문자열로 만들어진 태그는 insertAdjacentHTML을 사용한다
   });
 };
 
